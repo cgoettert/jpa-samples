@@ -8,7 +8,7 @@ import javax.persistence.MappedSuperclass;
  * @author cgoettert
  */
 @MappedSuperclass
-public class Person {
+public abstract class Person {
 
     @Column(name = "first_name", columnDefinition = "text")
     private String firstName;

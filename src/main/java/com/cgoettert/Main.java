@@ -1,6 +1,5 @@
 package com.cgoettert;
 
-import com.cgoettert.mappedsuperclass.Person;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -18,10 +17,7 @@ public class Main {
      */
     public static void main(String[] args) {
         EntityManager em = EMF.createEntityManager();
-        
-        Person p = new Person();
-        p.setAge(1);
-        
+                
         em.close();
         EMF.close();
     }
