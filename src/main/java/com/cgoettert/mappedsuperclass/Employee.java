@@ -1,43 +1,34 @@
-package com.mycompany.mavenproject2;
+package com.cgoettert.mappedsuperclass;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
  *
- * @author Charles
+ * @author cgoettert
  */
 @Entity
-@Table(name = "usuario")
-public class Usuario implements Serializable {
+@Table(name = "employee")
+public class Employee extends Person implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Column(name = "nome")
-    private String nome;
-    @Column(name = "cpf")
-    private String cpf;
     @Column(name = "login")
     private String login;
-    @Column(name = "senha")
-    private String senha;
-    @Column(name = "email", columnDefinition = "text")
-    private String email;
+    @Column(name = "passwd")
+    private String passwd;
 
-    public Usuario() {
+    public Employee() {
     }
 
-    public Usuario(Integer id) {
+    public Employee(Integer id) {
         this.id = id;
     }
 
@@ -49,22 +40,6 @@ public class Usuario implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
     public String getLogin() {
         return login;
     }
@@ -73,20 +48,12 @@ public class Usuario implements Serializable {
         this.login = login;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getPasswd() {
+        return passwd;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPasswd(String passwd) {
+        this.passwd = passwd;
     }
 
     @Override
@@ -99,10 +66,10 @@ public class Usuario implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Usuario)) {
+        if (!(object instanceof Employee)) {
             return false;
         }
-        Usuario other = (Usuario) object;
+        Employee other = (Employee) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -111,7 +78,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "com.cgoettert.framework.Usuario[ id=" + id + " ]";
+        return "com.cgoettert.mappedsuperclass.User[ id=" + id + " ]";
     }
 
 }

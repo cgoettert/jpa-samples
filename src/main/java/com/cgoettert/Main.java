@@ -1,5 +1,6 @@
-package com.mycompany.mavenproject2;
+package com.cgoettert;
 
+import com.cgoettert.mappedsuperclass.Person;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -9,7 +10,7 @@ import javax.persistence.Persistence;
  * @author Charles
  */
 public class Main {
-
+    
     private static final EntityManagerFactory EMF = Persistence.createEntityManagerFactory("teste");
 
     /**
@@ -18,8 +19,11 @@ public class Main {
     public static void main(String[] args) {
         EntityManager em = EMF.createEntityManager();
         
+        Person p = new Person();
+        p.setAge(1);
+        
         em.close();
         EMF.close();
     }
-
+    
 }
